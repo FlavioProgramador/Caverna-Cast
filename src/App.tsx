@@ -291,106 +291,103 @@ function ServicesSection() {
           <h2>Da gravação à <em>próxima publicação.</em></h2>
         </div>
         <div className="services__list">
-          <article className="service-row reveal">
-            <div className="service-row__number">01</div>
-            <div className="service-row__image">
+          <article className="service-card service-card--featured reveal">
+            <div className="service-card__featured-media">
               <img
                 src="/images/services/microfone-podcast.webp"
                 width="1170"
                 height="780"
                 alt="Microfone profissional iluminado em azul e roxo para gravação de podcast"
-                loading="lazy"
+                loading="eager"
+                fetchPriority="high"
               />
-            </div>
-            <div className="service-row__main">
-              <div className="service-row__icon"><Icon name="mic" /></div>
-              <div>
-                <h3>Gravação de podcast</h3>
-                <p>Gravação de episódios completos com estrutura de áudio e vídeo.</p>
+              <span className="service-card__image-index">01 <span /> Captação</span>
+              <div className="service-card__featured-copy">
+                <p className="service-card__eyebrow">Áudio e vídeo em estúdio</p>
+                <h3><Icon name="mic" /> Gravação de podcast</h3>
+                <p className="service-card__description">Gravação de episódios completos com estrutura de áudio e vídeo.</p>
+                <span className="service-card__categories">
+                  Podcasts · entrevistas · conversas · programas · YouTube · conteúdo empresarial
+                </span>
               </div>
             </div>
-            <div className="service-row__detail">
-              <span>Podcasts · entrevistas · conversas · programas · YouTube · conteúdo empresarial</span>
-              <WhatsAppLink
-                className="round-link"
-                message="Olá! Quero gravar meu podcast no Caverna Cast. Gostaria de consultar a disponibilidade."
-                aria-label="Quero gravar meu podcast"
-              >
-                <Icon name="arrow" />
-              </WhatsAppLink>
-            </div>
+            <WhatsAppLink
+              className="service-card__action round-link"
+              message="Olá! Quero gravar meu podcast no Caverna Cast. Gostaria de consultar a disponibilidade."
+              aria-label="Quero gravar meu podcast"
+            >
+              <Icon name="arrow" />
+            </WhatsAppLink>
           </article>
 
-          <article className="service-row reveal">
-            <div className="service-row__number">02</div>
-            <div className="service-row__image">
+          <article className="service-card service-card--cuts reveal">
+            <div className="service-card__cuts-media">
               <img
+                className="service-card__image"
                 src="/images/services/timeline-cortes.webp"
                 width="687"
                 height="1031"
                 alt="Timeline de edição de vídeo com clipes e faixas de áudio"
                 loading="lazy"
               />
+              <span className="service-card__image-index">02 <span /> Edição</span>
             </div>
-            <div className="service-row__main">
-              <div className="service-row__icon"><Icon name="scissors" /></div>
-              <div>
-                <h3>Cortes para redes</h3>
-                <p>
-                  Os melhores momentos da conversa podem virar vídeos curtos para
-                  aproveitar o conteúdo produzido.
-                </p>
+            <div className="service-card__body">
+              <div className="service-card__title-row">
+                <div>
+                  <p className="service-card__eyebrow">Conteúdo para redes</p>
+                  <h3><Icon name="scissors" /> Cortes para redes</h3>
+                </div>
+                <WhatsAppLink
+                  className="service-card__action round-link"
+                  message="Olá! Tenho interesse nos pacotes de cortes para redes sociais do Caverna Cast. Gostaria de mais informações."
+                  aria-label="Solicitar cortes para redes sociais"
+                >
+                  <Icon name="arrow" />
+                </WhatsAppLink>
               </div>
-            </div>
-            <div className="service-row__detail">
-              <span>{socialFormats.join(" · ")}</span>
-              <WhatsAppLink
-                className="round-link"
-                message="Olá! Tenho interesse nos pacotes de cortes para redes sociais do Caverna Cast. Gostaria de mais informações."
-                aria-label="Solicitar cortes para redes sociais"
-              >
-                <Icon name="arrow" />
-              </WhatsAppLink>
+              <p className="service-card__description">
+                Os melhores momentos da conversa podem virar vídeos curtos para
+                aproveitar o conteúdo produzido.
+              </p>
+              <span className="service-card__categories">{socialFormats.join(" · ")}</span>
             </div>
           </article>
 
-          <article className="service-row reveal">
-            <div className="service-row__number">03</div>
+          <article className="service-card service-card--identity reveal">
             <div
-              className="service-row__visual service-row__visual--identity"
+              className="service-card__identity-art"
               role="img"
-              aria-label="Composição ilustrativa da identidade visual do Caverna Cast em capa e thumbnail"
+              aria-label="Arte ilustrativa de capa e thumbnail com a logo e o slogan do Caverna Cast"
             >
-              <div className="identity-cover">
-                <span className="identity-cover__index">CC / 01</span>
+              <div className="identity-art__cover">
+                <span className="identity-art__index">Caverna Cast · 01</span>
                 <img src="/caverna-cast-logo.png" width="200" height="200" alt="" />
                 <strong>Grave.<br />Conte.<br />Conecte.</strong>
-                <span className="identity-cover__label">Capa de podcast</span>
+                <span className="identity-art__label">Podcast · capa</span>
               </div>
-              <div className="identity-thumbnail">
+              <div className="identity-art__thumbnail">
                 <img src="/caverna-cast-logo.png" width="200" height="200" alt="" />
                 <span>Grave.<br />Conte.<br />Conecte.</span>
               </div>
+              <span className="identity-art__caption">Identidade em diferentes formatos</span>
             </div>
-            <div className="service-row__main">
-              <div className="service-row__icon"><Icon name="layers" /></div>
-              <div>
-                <h3>Identidade visual</h3>
-                <p>
-                  Elementos visuais para fortalecer a apresentação e a divulgação
-                  do seu programa.
-                </p>
+            <div className="service-card__body">
+              <div className="service-card__title-row">
+                <div>
+                  <p className="service-card__eyebrow">Linguagem do seu programa</p>
+                  <h3><Icon name="layers" /> Identidade visual</h3>
+                </div>
+                <WhatsAppLink
+                  className="service-card__action round-link"
+                  message="Olá! Gostaria de conhecer os serviços de identidade visual para podcast da Caverna Mestra Produções."
+                  aria-label="Consultar identidade visual para podcast"
+                >
+                  <Icon name="arrow" />
+                </WhatsAppLink>
               </div>
-            </div>
-            <div className="service-row__detail">
-              <span>{visualIdentityItems.join(" · ")}</span>
-              <WhatsAppLink
-                className="round-link"
-                message="Olá! Gostaria de conhecer os serviços de identidade visual para podcast da Caverna Mestra Produções."
-                aria-label="Consultar identidade visual para podcast"
-              >
-                <Icon name="arrow" />
-              </WhatsAppLink>
+              <p className="service-card__description">Elementos visuais para fortalecer a apresentação e a divulgação do seu programa.</p>
+              <span className="service-card__categories">{visualIdentityItems.join(" · ")}</span>
             </div>
           </article>
         </div>
