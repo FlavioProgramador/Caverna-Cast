@@ -1,5 +1,5 @@
 import type { AnchorHTMLAttributes, ReactNode } from "react";
-import { whatsappUrl } from "./siteData";
+import { whatsappUrl } from "../data/siteData";
 
 type WhatsAppLinkProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, "href"> & {
   message: string;

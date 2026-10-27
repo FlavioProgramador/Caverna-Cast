@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { cutPackages, gallery, recordingPackages, whatsappUrl } from "./siteData";
+import { cutPackages, gallery, recordingPackages, whatsappUrl } from "./data/siteData";
 
 describe("WhatsApp links", () => {
   it("uses the official contact number and encodes the message", () => {

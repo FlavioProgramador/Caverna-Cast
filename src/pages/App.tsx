@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import type { KeyboardEvent } from "react";
-import { Icon } from "./Icon";
+import { Icon } from "../components/Icon";
 import {
   cutPackages,
   differentiators,
@@ -19,8 +19,8 @@ import {
   studioFeatures,
   visualIdentityItems,
   whatsappUrl,
-} from "./siteData";
-import { WhatsAppLink } from "./WhatsAppLink";
+} from "../data/siteData";
+import { WhatsAppLink } from "../components/WhatsAppLink";
 
 function Header({ hideCTA = false }: { hideCTA?: boolean }) {
   const [menuOpen, setMenuOpen] = useState(false);
