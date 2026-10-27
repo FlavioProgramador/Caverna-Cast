@@ -190,6 +190,29 @@ export const differentiators = [
   },
 ];
 
+export const faqItems = [
+  {
+    question: "Como faço para agendar uma gravação?",
+    answer: "Entre em contato pelo WhatsApp para consultar a disponibilidade e alinhar o pacote, o formato do conteúdo e o horário da gravação.",
+  },
+  {
+    question: "Quais serviços o Caverna Cast oferece?",
+    answer: "O site apresenta gravação de podcast e videocast, cortes para redes sociais e serviços de identidade visual para programas.",
+  },
+  {
+    question: "Quais são os pacotes de gravação?",
+    answer: "Atualmente, o site apresenta uma opção de 1 hora de estúdio e outra de 3 horas. Consulte a página de pacotes para ver preços e benefícios incluídos.",
+  },
+  {
+    question: "É possível produzir cortes para redes sociais?",
+    answer: "Sim. O Caverna Cast apresenta opções de cortes para Reels, YouTube Shorts, TikTok, Stories e entrevistas. Os detalhes podem ser alinhados pelo WhatsApp.",
+  },
+  {
+    question: "Onde fica o estúdio?",
+    answer: "O estúdio fica no bairro Pacheco, em São Gonçalo, no Rio de Janeiro. A página do estúdio disponibiliza o endereço e links para consultar o mapa e traçar a rota.",
+  },
+];
+
 export const processSteps = [
   {
     number: "01",

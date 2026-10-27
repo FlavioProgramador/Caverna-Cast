@@ -4,6 +4,7 @@ import { Icon } from "./Icon";
 import {
   cutPackages,
   differentiators,
+  faqItems,
   gallery,
   generalMessage,
   INSTAGRAM_URL,
@@ -478,6 +479,44 @@ function CutsPackages() {
   );
 }
 
+function FAQSection() {
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+
+  return (
+    <section className="faq section-pad" id="perguntas-frequentes">
+      <div className="shell faq__layout">
+        <div className="faq__intro reveal">
+          <p className="eyebrow"><span className="eyebrow__line" /> Dúvidas frequentes</p>
+          <h2>Antes de gravar, <em>vamos conversar.</em></h2>
+          <p>Encontre respostas rápidas ou fale com a equipe para alinhar os detalhes da sua produção.</p>
+          <WhatsAppLink className="button button--primary" message="Olá! Tenho algumas dúvidas sobre os serviços e gostaria de consultar a disponibilidade do Caverna Cast.">
+            Consultar disponibilidade <Icon name="arrow" />
+          </WhatsAppLink>
+        </div>
+        <div className="faq__items reveal">
+          {faqItems.map((item, index) => {
+            const isOpen = openIndex === index;
+            const answerId = `faq-answer-${index + 1}`;
+            return (
+              <article className={"faq-item" + (isOpen ? " faq-item--open" : "")} key={item.question}>
+                <h3>
+                  <button type="button" className="faq-item__trigger" aria-expanded={isOpen} aria-controls={answerId} onClick={() => setOpenIndex(isOpen ? null : index)}>
+                    <span>{item.question}</span>
+                    <span className="faq-item__indicator" aria-hidden="true">{isOpen ? "−" : "+"}</span>
+                  </button>
+                </h3>
+                <div className="faq-item__answer" id={answerId} hidden={!isOpen}>
+                  <p>{item.answer}</p>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function WhyCaverna() {
   return (
     <section className="why section-pad">
@@ -932,7 +971,7 @@ export default function App() {
     : page === "services"
       ? <><ServicesSection /><WhyCaverna /><ProcessSection /></>
       : page === "packages"
-        ? <><RecordingPackages /><CutsPackages /></>
+        ? <><RecordingPackages /><CutsPackages /><FAQSection /></>
         : page === "contact"
           ? <ContactPage />
         : <><HeroSection /><StudioIntro /><HomeDestinations /></>;
