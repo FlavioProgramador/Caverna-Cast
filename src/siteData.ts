@@ -1,0 +1,208 @@
+export const WHATSAPP_NUMBER = "5521995507294";
+export const INSTAGRAM_URL = "https://www.instagram.com/_cavernacast/";
+
+export function whatsappUrl(message: string): string {
+  return "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(message);
+}
+
+export const generalMessage =
+  "Olá! Conheci o Caverna Cast pelo site e gostaria de mais informações sobre os serviços e agendamento.";
+
+export const navigation = [
+  { label: "Início", href: "#inicio" },
+  { label: "Estrutura", href: "#estrutura" },
+  { label: "Serviços", href: "#servicos" },
+  { label: "Pacotes", href: "#pacotes" },
+  { label: "Contato", href: "#contato" },
+];
+
+export const gallery = [
+  {
+    src: "/images/studio/mesa-estudio.webp",
+    alt: "Mesa de gravação com microfones diante das cortinas azuis do estúdio",
+    caption: "Um cenário pronto para a conversa",
+    width: 1501,
+    height: 997,
+    className: "gallery-image--wide",
+  },
+  {
+    src: "/images/studio/hero-microfone-caverna.webp",
+    alt: "Microfone do Caverna Cast iluminado em um cenário escuro",
+    caption: "Áudio e imagem em clima de estúdio",
+    width: 1024,
+    height: 1536,
+    className: "gallery-image--portrait",
+  },
+  {
+    src: "/images/studio/sala-equipamentos.webp",
+    alt: "Equipamentos de gravação e vídeo montados na sala do Caverna Cast",
+    caption: "Estrutura de gravação",
+    width: 1287,
+    height: 855,
+    className: "gallery-image--wide",
+  },
+  {
+    src: "/images/studio/microfones-mesa.webp",
+    alt: "Microfones e canecas sobre a mesa de gravação",
+    caption: "Cada lugar preparado para gravar",
+    width: 1287,
+    height: 855,
+    className: "gallery-image--wide",
+  },
+  {
+    src: "/images/studio/camera-estudio.webp",
+    alt: "Câmera de vídeo instalada no estúdio",
+    caption: "Captação de vídeo",
+    width: 663,
+    height: 997,
+    className: "gallery-image--portrait",
+  },
+  {
+    src: "/images/studio/guitarras-estudio.webp",
+    alt: "Guitarras que compõem a decoração do estúdio",
+    caption: "Detalhes da Caverna",
+    width: 2144,
+    height: 1424,
+    className: "gallery-image--wide",
+  },
+  {
+    src: "/images/studio/caneca-caverna.webp",
+    alt: "Caneca com a marca Caverna Cast sobre a mesa",
+    caption: "A marca também mora nos detalhes",
+    width: 946,
+    height: 1424,
+    className: "gallery-image--portrait",
+  },
+];
+
+export const studioFeatures = [
+  "Cenário para até 4 participantes",
+  "Captação profissional de áudio",
+  "Gravação em 4K",
+  "Iluminação de estúdio",
+  "Cenário preparado para entrevistas",
+  "Monitoramento durante a gravação",
+  "Estrutura para conteúdo digital",
+];
+
+export const recordingPackages = [
+  {
+    id: "one-hour",
+    eyebrow: "Uma sessão objetiva",
+    title: "Hora de estúdio",
+    price: "R$ 200,00",
+    description: "Para tirar uma ideia do papel e gravar com estrutura profissional.",
+    features: [
+      "1 hora de gravação",
+      "Cenário para até 4 pessoas",
+      "Gravação em 4K",
+      "Estrutura de áudio e vídeo",
+      "Edição inclusa*",
+      "1 corte de brinde",
+    ],
+    note: "* Edição conforme o formato contratado.",
+    message:
+      "Olá! Tenho interesse no pacote de 1 hora de estúdio do Caverna Cast, no valor de R$ 200,00. Gostaria de consultar a disponibilidade.",
+  },
+  {
+    id: "three-hours",
+    eyebrow: "Uma sessão mais longa",
+    title: "3 horas de estúdio",
+    price: "R$ 450,00",
+    description: "Ideal para quem deseja gravar vários conteúdos em uma única sessão.",
+    features: [
+      "3 horas de gravação",
+      "Gravação em 4K",
+      "Cenário para até 4 pessoas",
+      "Estrutura de áudio e vídeo",
+      "Edição conforme o formato contratado",
+      "Possibilidade de produzir episódios e cortes na mesma sessão",
+      "Bônus: 2 cortes para redes sociais",
+      "Bônus: 1 hora de edição",
+      "Bônus: miniatura do episódio",
+    ],
+    message:
+      "Olá! Tenho interesse no pacote de 3 horas de estúdio do Caverna Cast, no valor de R$ 450,00. Gostaria de consultar a disponibilidade.",
+  },
+];
+
+export const cutPackages = [
+  { quantity: 1, price: "R$ 50,00" },
+  { quantity: 2, price: "R$ 90,00" },
+  { quantity: 3, price: "R$ 120,00" },
+  { quantity: 5, price: "R$ 180,00" },
+  { quantity: 10, price: "R$ 300,00" },
+];
+
+export const socialFormats = [
+  "Reels",
+  "YouTube Shorts",
+  "TikTok",
+  "Vídeos para Stories",
+  "Cortes de entrevistas",
+];
+
+export const visualIdentityItems = [
+  "Nome do programa",
+  "Capa e thumbnail",
+  "Vinheta",
+  "Identidade visual",
+  "GC com nome dos participantes",
+  "Artes para divulgação",
+  "Cortes para redes sociais",
+];
+
+export const differentiators = [
+  {
+    number: "01",
+    title: "Qualidade",
+    body: "Gravação em alta resolução e captação preparada para conteúdo profissional.",
+    icon: "sparkles" as const,
+  },
+  {
+    number: "02",
+    title: "Praticidade",
+    body: "Você chega, prepara o conteúdo e grava. A estrutura fica por nossa conta.",
+    icon: "sliders" as const,
+  },
+  {
+    number: "03",
+    title: "Versatilidade",
+    body: "Podcast, entrevista, videocast, conteúdo para redes sociais e muito mais.",
+    icon: "layers" as const,
+  },
+  {
+    number: "04",
+    title: "Conteúdo",
+    body: "Uma gravação pode render um episódio completo e vários conteúdos para suas redes.",
+    icon: "scissors" as const,
+  },
+];
+
+export const processSteps = [
+  {
+    number: "01",
+    title: "Agendamento",
+    body: "Entre em contato e escolha o melhor horário para sua gravação.",
+  },
+  {
+    number: "02",
+    title: "Preparação",
+    body: "Definimos o formato, os participantes e as necessidades do conteúdo.",
+  },
+  {
+    number: "03",
+    title: "Gravação",
+    body: "Você grava no estúdio com acompanhamento técnico.",
+  },
+  {
+    number: "04",
+    title: "Edição",
+    body: "O material é preparado conforme o serviço contratado.",
+  },
+  {
+    number: "05",
+    title: "Entrega",
+    body: "Você recebe o conteúdo pronto para usar nas suas plataformas.",
+  },
+];
