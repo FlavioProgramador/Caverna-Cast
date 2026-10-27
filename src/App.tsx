@@ -119,6 +119,8 @@ function HeroSection() {
           <div className="hero__image-frame">
             <img
               src="/images/studio/hero-microfone-caverna.webp"
+              srcSet="/images/studio/hero-microfone-caverna-480.webp 480w, /images/studio/hero-microfone-caverna-800.webp 800w, /images/studio/hero-microfone-caverna.webp 1024w"
+              sizes="(max-width: 600px) 86vw, (max-width: 820px) 38vw, 34vw"
               width="1024"
               height="1536"
               alt="Microfone do Caverna Cast em um cenário de gravação iluminado"
@@ -182,10 +184,13 @@ function StudioIntro() {
           <img
             className="intro__main-image"
             src="/images/studio/mesa-estudio.webp"
+            srcSet="/images/studio/mesa-estudio-480.webp 480w, /images/studio/mesa-estudio-800.webp 800w, /images/studio/mesa-estudio.webp 1501w"
+            sizes="(max-width: 600px) calc(100vw - 36px), (max-width: 820px) 90vw, 40vw"
             width="1501"
             height="997"
             alt="Mesa de gravação preparada diante das cortinas azuis do estúdio"
-            loading="lazy"
+            decoding="async"
+                loading="lazy"
           />
           <div className="intro__photo-note">
             <span className="photo-note__number">01</span>
@@ -197,7 +202,8 @@ function StudioIntro() {
               width="946"
               height="1424"
               alt="Caneca com a marca Caverna Cast sobre a mesa"
-              loading="lazy"
+              decoding="async"
+                loading="lazy"
             />
           </div>
           <span className="intro__visual-caption">Entre, prepare a conversa e grave.</span>
@@ -259,9 +265,12 @@ function StudioSection() {
             <figure className="structure-photo structure-photo--main">
               <img
                 src="/images/studio/sala-equipamentos.webp"
+                srcSet="/images/studio/sala-equipamentos-480.webp 480w, /images/studio/sala-equipamentos-800.webp 800w, /images/studio/sala-equipamentos-1200.webp 1200w, /images/studio/sala-equipamentos.webp 1287w"
+                sizes="(max-width: 600px) 100vw, (max-width: 820px) 90vw, 45vw"
                 width="1287"
                 height="855"
                 alt="Câmeras e equipamentos de gravação montados na sala do estúdio"
+                decoding="async"
                 loading="lazy"
               />
               <figcaption>01 / Sala de gravação</figcaption>
@@ -269,6 +278,7 @@ function StudioSection() {
             <figure className="structure-photo structure-photo--detail">
               <img
                 src="/images/studio/microfone-detalhe.webp"
+                decoding="async"
                 width="663"
                 height="997"
                 alt="Microfone pronto para uma gravação no Caverna Cast"
@@ -329,6 +339,7 @@ function ServicesSection() {
                 width="687"
                 height="1031"
                 alt="Timeline de edição de vídeo com clipes e faixas de áudio"
+                decoding="async"
                 loading="lazy"
               />
               <span className="service-card__image-index">02 <span /> Edição</span>
@@ -363,6 +374,7 @@ function ServicesSection() {
                 width="1024"
                 height="572"
                 alt="Estúdio Caverna Cast com a marca iluminada na parede, microfone e mesa de gravação"
+                decoding="async"
                 loading="lazy"
               />
             </div>
@@ -644,6 +656,9 @@ function GallerySection() {
             >
               <img
                 src={image.src}
+                srcSet={image.srcSet}
+                sizes={image.sizes}
+                decoding="async"
                 width={image.width}
                 height={image.height}
                 alt={image.alt}
@@ -713,10 +728,13 @@ function FinalCallToAction() {
         <div className="final-cta__image">
           <img
             src="/images/studio/microfones-mesa.webp"
+            srcSet="/images/studio/microfones-mesa-480.webp 480w, /images/studio/microfones-mesa-800.webp 800w, /images/studio/microfones-mesa-1200.webp 1200w, /images/studio/microfones-mesa.webp 1287w"
+            sizes="(max-width: 600px) 100vw, (max-width: 820px) 90vw, 45vw"
             width="1287"
             height="855"
             alt="Microfones prontos sobre a mesa do estúdio"
-            loading="lazy"
+            decoding="async"
+                loading="lazy"
           />
         </div>
         <div className="final-cta__copy">
@@ -822,9 +840,12 @@ function ContactPage() {
             <div className="contact-page__location-image">
               <img
                 src="/images/studio/sala-equipamentos.webp"
+                srcSet="/images/studio/sala-equipamentos-480.webp 480w, /images/studio/sala-equipamentos-800.webp 800w, /images/studio/sala-equipamentos-1200.webp 1200w, /images/studio/sala-equipamentos.webp 1287w"
+                sizes="(max-width: 600px) 100vw, (max-width: 820px) 90vw, 45vw"
                 width="1287"
                 height="855"
                 alt="Estrutura de gravação do Caverna Cast em São Gonçalo"
+                decoding="async"
                 loading="lazy"
               />
             </div>
