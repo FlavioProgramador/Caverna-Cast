@@ -702,6 +702,68 @@ function LocationSection() {
   );
 }
 
+function ContactPage() {
+  return (
+    <section className="contact-page section-pad" id="contato">
+      <div className="shell">
+        <div className="contact-page__heading reveal">
+          <p className="eyebrow"><span className="eyebrow__line" /> Contato direto</p>
+          <h1>Vamos falar sobre <em>sua gravação.</em></h1>
+          <p>Escolha o canal mais prático para conversar com a equipe do Caverna Cast.</p>
+        </div>
+
+        <div className="contact-page__layout">
+          <div className="contact-page__channels reveal">
+            <WhatsAppLink className="contact-channel contact-channel--whatsapp" message={generalMessage}>
+              <span className="contact-channel__icon"><Icon name="whatsapp" /></span>
+              <span className="contact-channel__copy">
+                <span className="contact-channel__label">Agendamentos e informações</span>
+                <strong>Converse pelo WhatsApp</strong>
+                <span>+55 (21) 99550-7294</span>
+              </span>
+              <Icon name="arrow" className="contact-channel__arrow" />
+            </WhatsAppLink>
+
+            <a className="contact-channel contact-channel--instagram" href={INSTAGRAM_URL} target="_blank" rel="noreferrer">
+              <span className="contact-channel__icon"><Icon name="instagram" /></span>
+              <span className="contact-channel__copy">
+                <span className="contact-channel__label">Acompanhe o estúdio</span>
+                <strong>Instagram</strong>
+                <span>@_cavernacast</span>
+              </span>
+              <Icon name="arrow" className="contact-channel__arrow" />
+            </a>
+          </div>
+
+          <aside className="contact-page__location reveal">
+            <div className="contact-page__location-image">
+              <img
+                src="/images/studio/sala-equipamentos.webp"
+                width="1287"
+                height="855"
+                alt="Estrutura de gravação do Caverna Cast em São Gonçalo"
+                loading="lazy"
+              />
+            </div>
+            <div className="contact-page__location-copy">
+              <p className="eyebrow"><span className="eyebrow__line" /> Onde estamos</p>
+              <address><Icon name="map-pin" />{STUDIO_ADDRESS}</address>
+              <div className="contact-page__location-links">
+                <a className="text-link text-link--light" href={STUDIO_MAPS_URL} target="_blank" rel="noreferrer">
+                  Abrir no Google Maps <Icon name="arrow" />
+                </a>
+                <a className="text-link text-link--light" href="./estudio.html#localizacao">
+                  Conhecer o estúdio <Icon name="arrow" />
+                </a>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function HomeDestinations() {
   const destinations = [
     {
@@ -750,7 +812,7 @@ function HomeDestinations() {
 
 function Footer() {
   return (
-    <footer className="site-footer" id="contato">
+    <footer className="site-footer">
       <div className="shell">
         <div className="footer-main">
           <div className="footer-brand">
@@ -825,6 +887,8 @@ export default function App() {
       ? "services"
       : path.endsWith("/pacotes.html")
         ? "packages"
+        : path.endsWith("/contato.html")
+          ? "contact"
         : "home";
 
   const sections = page === "studio"
@@ -833,6 +897,8 @@ export default function App() {
       ? <><ServicesSection /><WhyCaverna /><ProcessSection /></>
       : page === "packages"
         ? <><RecordingPackages /><CutsPackages /></>
+        : page === "contact"
+          ? <ContactPage />
         : <><HeroSection /><StudioIntro /><HomeDestinations /></>;
 
   return (
@@ -844,7 +910,7 @@ export default function App() {
         {page === "home" && <FinalCallToAction />}
       </main>
       <Footer />
-      <WhatsAppLink
+      {page !== "contact" && <WhatsAppLink
         className="mobile-whatsapp"
         message={generalMessage}
         aria-label="Agendar gravação pelo WhatsApp"
@@ -852,7 +918,7 @@ export default function App() {
         <Icon name="whatsapp" />
         <span>Agendar pelo WhatsApp</span>
         <Icon name="arrow" />
-      </WhatsAppLink>
+      </WhatsAppLink>}
     </>
   );
 }

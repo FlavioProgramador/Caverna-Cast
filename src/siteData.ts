@@ -17,7 +17,7 @@ export const navigation = [
   { label: "Estúdio", href: "./estudio.html" },
   { label: "Serviços", href: "./servicos.html" },
   { label: "Pacotes", href: "./pacotes.html" },
-  { label: "Contato", href: "./index.html#contato" },
+  { label: "Contato", href: "./contato.html" },
 ];
 
 export const gallery = [

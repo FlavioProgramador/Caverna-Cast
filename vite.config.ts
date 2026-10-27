@@ -10,6 +10,7 @@ export default defineConfig({
         studio: "estudio.html",
         services: "servicos.html",
         packages: "pacotes.html",
+        contact: "contato.html",
       },
     },
   },

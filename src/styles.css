@@ -1423,6 +1423,162 @@ h2 em {
   height: 18px;
 }
 
+.contact-page {
+  min-height: min(780px, calc(100svh - var(--header-height)));
+  background:
+    radial-gradient(ellipse at 82% 18%, rgba(73, 49, 125, 0.17), transparent 31rem),
+    #0b0a10;
+}
+
+.contact-page__heading {
+  max-width: 760px;
+  margin-bottom: clamp(40px, 6vw, 76px);
+}
+
+.contact-page__heading h1 {
+  max-width: 700px;
+  margin: 0 0 18px;
+  font-family: var(--serif);
+  font-size: clamp(3.25rem, 7vw, 6.25rem);
+  font-weight: 400;
+  letter-spacing: -0.045em;
+  line-height: 0.99;
+}
+
+.contact-page__heading h1 em {
+  color: #c2a5ff;
+  font-weight: 400;
+}
+
+.contact-page__heading > p:last-child {
+  max-width: 520px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 18px;
+}
+
+.contact-page__layout {
+  display: grid;
+  align-items: stretch;
+  grid-template-columns: 0.92fr 1.08fr;
+  gap: clamp(34px, 7vw, 92px);
+}
+
+.contact-page__channels {
+  align-self: center;
+  border-top: 1px solid var(--line-strong);
+}
+
+.contact-channel {
+  display: flex;
+  min-height: 130px;
+  align-items: center;
+  gap: 20px;
+  border-bottom: 1px solid var(--line-strong);
+  transition: background-color 180ms ease, padding 180ms ease;
+}
+
+.contact-channel:hover {
+  padding-inline: 10px;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.contact-channel__icon {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid rgba(194, 165, 255, 0.3);
+  border-radius: 50%;
+  color: #c2a5ff;
+}
+
+.contact-channel__icon svg {
+  width: 21px;
+  height: 21px;
+}
+
+.contact-channel__copy {
+  display: grid;
+  gap: 3px;
+}
+
+.contact-channel__label {
+  color: #aaa7b2;
+  font-size: 13px;
+}
+
+.contact-channel__copy strong {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.contact-channel__copy > span:last-child {
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.contact-channel__arrow {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+  margin-left: auto;
+  color: #c2a5ff;
+}
+
+.contact-page__location {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: #111016;
+}
+
+.contact-page__location-image {
+  height: clamp(220px, 27vw, 340px);
+  overflow: hidden;
+  background: #19171f;
+}
+
+.contact-page__location-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 45%;
+}
+
+.contact-page__location-copy {
+  padding: clamp(22px, 3vw, 36px);
+}
+
+.contact-page__location-copy .eyebrow {
+  margin-bottom: 14px;
+}
+
+.contact-page__location address {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  color: #f0edf5;
+  font-size: 16px;
+  font-style: normal;
+  line-height: 1.65;
+}
+
+.contact-page__location address svg {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 auto;
+  margin-top: 4px;
+  color: #c2a5ff;
+}
+
+.contact-page__location-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+  margin-top: 24px;
+}
+
 .location {
   background: #101016;
 }
@@ -1802,6 +1958,19 @@ h2 em {
     gap: 34px;
   }
 
+  .contact-page__layout {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+
+  .contact-page__channels {
+    order: 1;
+  }
+
+  .contact-page__location {
+    order: 2;
+  }
+
   .gallery__grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     grid-auto-rows: clamp(90px, 28vw, 220px);
@@ -1895,6 +2064,46 @@ h2 em {
 
   .hero {
     padding-block: 40px 62px;
+  }
+
+  .contact-page__heading {
+    margin-bottom: 34px;
+  }
+
+  .contact-page__heading h1 {
+    font-size: clamp(3rem, 14vw, 4.5rem);
+  }
+
+  .contact-page__heading > p:last-child {
+    font-size: 16px;
+  }
+
+  .contact-channel {
+    min-height: 112px;
+    gap: 13px;
+  }
+
+  .contact-channel__icon {
+    width: 42px;
+    height: 42px;
+  }
+
+  .contact-channel__copy strong {
+    font-size: 17px;
+  }
+
+  .contact-channel__copy > span:last-child {
+    font-size: 14px;
+  }
+
+  .contact-page__location-image {
+    height: 220px;
+  }
+
+  .contact-page__location-links {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 15px;
   }
 
   .hero__grid {
