@@ -482,7 +482,15 @@ function ProcessSection() {
             <p className="eyebrow"><span className="eyebrow__line" /> Sem complicação</p>
             <h2>Como <em>funciona.</em></h2>
           </div>
-          <p>Você traz a ideia. A gente acompanha cada etapa no estúdio.</p>
+          <div className="process__followup">
+            <p>
+              Depois do seu contato, alinhamos o pacote, consultamos a disponibilidade
+              e combinamos o horário da gravação pelo WhatsApp.
+            </p>
+            <WhatsAppLink className="text-link process__contact-link" message={generalMessage}>
+              Iniciar conversa <Icon name="arrow" />
+            </WhatsAppLink>
+          </div>
         </div>
         <ol className="process__steps">
           {processSteps.map((step, index) => (

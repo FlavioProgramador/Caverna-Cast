@@ -190,7 +190,7 @@ export const processSteps = [
   {
     number: "01",
     title: "Agendamento",
-    body: "Entre em contato e escolha o melhor horário para sua gravação.",
+    body: "Chame a gente pelo WhatsApp para consultar horários e definir o agendamento.",
   },
   {
     number: "02",
