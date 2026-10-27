@@ -364,13 +364,11 @@ function ServicesSection() {
                 <span className="identity-art__index">Caverna Cast · 01</span>
                 <img src="/caverna-cast-logo.png" width="200" height="200" alt="" />
                 <strong>Grave.<br />Conte.<br />Conecte.</strong>
-                <span className="identity-art__label">Podcast · capa</span>
               </div>
               <div className="identity-art__thumbnail">
                 <img src="/caverna-cast-logo.png" width="200" height="200" alt="" />
                 <span>Grave.<br />Conte.<br />Conecte.</span>
               </div>
-              <span className="identity-art__caption">Identidade em diferentes formatos</span>
             </div>
             <div className="service-card__body">
               <div className="service-card__title-row">

@@ -1097,8 +1097,7 @@ h2 em {
   object-fit: cover;
 }
 
-.identity-art__index,
-.identity-art__label {
+.identity-art__index {
   position: absolute;
   left: 14px;
   color: #d4c6f1;
@@ -1111,14 +1110,9 @@ h2 em {
   top: 13px;
 }
 
-.identity-art__label {
-  bottom: 11px;
-  color: rgba(247, 245, 252, 0.7);
-}
-
 .identity-art__cover strong {
   font-family: var(--serif);
-  font-size: clamp(15px, 1.7vw, 21px);
+  font-size: clamp(15px, 1.4vw, 18px);
   font-weight: 400;
   line-height: 1;
 }
@@ -1150,16 +1144,6 @@ h2 em {
   font-family: var(--serif);
   font-size: 9px;
   line-height: 1;
-}
-
-.identity-art__caption {
-  position: absolute;
-  right: 14px;
-  bottom: 10px;
-  color: #b2a2d4;
-  font-size: 8px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
 }
 
 @media (hover: hover) {
