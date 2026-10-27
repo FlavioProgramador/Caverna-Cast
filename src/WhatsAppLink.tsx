@@ -12,6 +12,7 @@ export function WhatsAppLink({ message, children, ...props }: WhatsAppLinkProps)
       href={whatsappUrl(message)}
       target="_blank"
       rel="noreferrer"
+      data-analytics-event="whatsapp_click"
       {...props}
     >
       {children}
