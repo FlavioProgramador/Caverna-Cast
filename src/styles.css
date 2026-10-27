@@ -533,13 +533,15 @@ h2 em {
   right: 0;
   bottom: 36px;
   width: 27%;
+  aspect-ratio: 0.72;
+  overflow: hidden;
   padding: 6px;
   background: #1b1922;
 }
 
 .intro__detail-image img {
   width: 100%;
-  aspect-ratio: 0.72;
+  height: 100%;
   object-fit: cover;
 }
 
@@ -1593,7 +1595,20 @@ h2 em {
   }
 
   .intro__grid {
+    grid-template-columns: 1fr;
     gap: 45px;
+  }
+
+  .intro__copy {
+    order: 1;
+  }
+
+  .intro__visual {
+    order: 2;
+    width: 100%;
+    max-width: 680px;
+    justify-self: center;
+    padding-right: 8%;
   }
 
   .structure__layout {
