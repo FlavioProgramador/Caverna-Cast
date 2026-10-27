@@ -581,8 +581,11 @@ function ProcessSection() {
 
 function GallerySection() {
   const [activeImage, setActiveImage] = useState<number | null>(null);
+  const [activeCategory, setActiveCategory] = useState("Todos");
   const dialogRef = useRef<HTMLDialogElement>(null);
-  const active = activeImage === null ? null : gallery[activeImage];
+  const categories = ["Todos", ...new Set(gallery.map((image) => image.category))];
+  const visibleGallery = activeCategory === "Todos" ? gallery : gallery.filter((image) => image.category === activeCategory);
+  const active = activeImage === null ? null : visibleGallery[activeImage];
 
   useEffect(() => {
     const dialog = dialogRef.current;
@@ -597,11 +600,11 @@ function GallerySection() {
   function moveImage(event: KeyboardEvent<HTMLDialogElement>) {
     if (event.key === "ArrowRight") {
       event.preventDefault();
-      setActiveImage((index) => index === null ? null : (index + 1) % gallery.length);
+      setActiveImage((index) => index === null ? null : (index + 1) % visibleGallery.length);
     }
     if (event.key === "ArrowLeft") {
       event.preventDefault();
-      setActiveImage((index) => index === null ? null : (index + gallery.length - 1) % gallery.length);
+      setActiveImage((index) => index === null ? null : (index + visibleGallery.length - 1) % visibleGallery.length);
     }
   }
 
@@ -617,8 +620,21 @@ function GallerySection() {
             Um olhar sobre o espaço, os equipamentos e os detalhes do Caverna Cast.
           </p>
         </div>
+        <div className="gallery__filters" role="group" aria-label="Filtrar fotos da galeria">
+          {categories.map((category) => (
+            <button
+              className={"gallery-filter" + (activeCategory === category ? " gallery-filter--active" : "")}
+              type="button"
+              key={category}
+              aria-pressed={activeCategory === category}
+              onClick={() => { setActiveCategory(category); setActiveImage(null); }}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
         <div className="gallery__grid">
-          {gallery.map((image, index) => (
+          {visibleGallery.map((image, index) => (
             <button
               className={"gallery-tile " + image.className + " reveal"}
               key={image.src}

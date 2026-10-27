@@ -3152,3 +3152,11 @@ h2 em {
   .faq__intro .button { width: 100%; }
   .faq-item__trigger { padding: 18px 0; font-size: 19px; }
 }
+
+
+/* Portfolio category controls */
+.gallery__filters { display: flex; flex-wrap: wrap; gap: 9px; margin: -18px 0 28px; }
+.gallery-filter { padding: 8px 14px; border: 1px solid var(--line-strong); border-radius: 999px; background: transparent; color: #b9b6c3; cursor: pointer; font: inherit; font-size: 12px; transition: color 180ms ease, border-color 180ms ease, background-color 180ms ease; }
+.gallery-filter:hover, .gallery-filter--active { border-color: rgba(185,154,255,.65); background: rgba(185,154,255,.1); color: #e0d2ff; }
+.gallery-filter:focus-visible { outline: 2px solid #b69aff; outline-offset: 3px; }
+@media (max-width: 600px) { .gallery__filters { gap: 7px; margin-top: -8px; margin-bottom: 22px; } .gallery-filter { padding: 8px 11px; } }
