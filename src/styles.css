@@ -512,6 +512,72 @@ h2 em {
   background: #101016;
 }
 
+.home-destinations {
+  background: #0b0b10;
+}
+
+.home-destinations .section-heading {
+  margin-bottom: 32px;
+}
+
+.home-destinations .section-heading h2 {
+  max-width: 620px;
+}
+
+.home-destinations__list {
+  border-top: 1px solid var(--line-strong);
+}
+
+.home-destination {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 52px 1fr 24px;
+  gap: 18px;
+  padding: 20px 4px;
+  border-bottom: 1px solid var(--line);
+  transition: padding 200ms ease, color 200ms ease, background-color 200ms ease;
+}
+
+.home-destination:hover {
+  padding-inline: 12px;
+  color: #d7c5ff;
+}
+
+.home-destination__number {
+  color: #bd9fff;
+  font-size: 13px;
+  letter-spacing: 0.12em;
+}
+
+.home-destination__copy {
+  display: grid;
+  gap: 3px;
+}
+
+.home-destination__copy strong {
+  color: #f7f5fc;
+  font-family: var(--serif);
+  font-size: 23px;
+  font-weight: 400;
+}
+
+.home-destination__copy > span {
+  color: #a7a5b3;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.home-destination > svg {
+  width: 20px;
+  height: 20px;
+  color: #bd9fff;
+  transition: transform 200ms ease;
+}
+
+.home-destination:hover > svg {
+  transform: translateX(4px);
+}
+
 .intro__grid {
   display: grid;
   align-items: center;

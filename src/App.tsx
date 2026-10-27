@@ -35,7 +35,7 @@ function Header() {
   return (
     <header className="site-header">
       <div className="shell header-inner">
-        <a className="brand" href="#inicio" aria-label="Caverna Cast — início">
+        <a className="brand" href="./index.html#inicio" aria-label="Caverna Cast — início">
           <img src="/caverna-cast-logo.png" width="200" height="200" alt="" />
           <span className="brand__name">
             Caverna <strong>Cast</strong>
@@ -92,7 +92,7 @@ function HeroSection() {
             <WhatsAppLink className="button button--primary" message={generalMessage}>
               Agendar gravação <Icon name="arrow" />
             </WhatsAppLink>
-            <a className="text-link" href="#estrutura">
+            <a className="text-link" href="./estudio.html">
               Conhecer o estúdio <span aria-hidden="true">↓</span>
             </a>
           </div>
@@ -214,7 +214,7 @@ function StudioIntro() {
             Da chegada ao estúdio até a entrega do material, buscamos unir qualidade
             de áudio, imagem e praticidade.
           </p>
-          <a className="text-link text-link--light" href="#servicos">
+          <a className="text-link text-link--light" href="./servicos.html">
             Veja o que podemos produzir <Icon name="arrow" />
           </a>
           <div className="intro__signature">
@@ -699,13 +699,59 @@ function LocationSection() {
   );
 }
 
+function HomeDestinations() {
+  const destinations = [
+    {
+      number: "01",
+      title: "Conheça o estúdio",
+      description: "Estrutura, fotos e como chegar em Pacheco, São Gonçalo.",
+      href: "./estudio.html",
+    },
+    {
+      number: "02",
+      title: "Explore os serviços",
+      description: "Gravação de podcast, cortes e identidade visual.",
+      href: "./servicos.html",
+    },
+    {
+      number: "03",
+      title: "Consulte os pacotes",
+      description: "Valores de gravação e cortes para redes sociais.",
+      href: "./pacotes.html",
+    },
+  ];
+
+  return (
+    <section className="home-destinations section-pad">
+      <div className="shell">
+        <div className="section-heading reveal">
+          <p className="eyebrow"><span className="eyebrow__line" /> Explore o Caverna Cast</p>
+          <h2>O próximo passo <em>é seu.</em></h2>
+        </div>
+        <div className="home-destinations__list">
+          {destinations.map((destination) => (
+            <a className="home-destination reveal" href={destination.href} key={destination.number}>
+              <span className="home-destination__number">{destination.number}</span>
+              <span className="home-destination__copy">
+                <strong>{destination.title}</strong>
+                <span>{destination.description}</span>
+              </span>
+              <Icon name="arrow" aria-hidden="true" />
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Footer() {
   return (
     <footer className="site-footer" id="contato">
       <div className="shell">
         <div className="footer-main">
           <div className="footer-brand">
-            <a className="brand brand--footer" href="#inicio" aria-label="Caverna Cast — início">
+            <a className="brand brand--footer" href="./index.html#inicio" aria-label="Caverna Cast — início">
               <img src="/caverna-cast-logo.png" width="200" height="200" alt="" />
               <span className="brand__name">Caverna <strong>Cast</strong></span>
             </a>
@@ -734,7 +780,7 @@ function Footer() {
         </div>
         <div className="footer-bottom">
           <span>© {new Date().getFullYear()} Caverna Cast</span>
-          <a href="#inicio">Voltar ao início ↑</a>
+          <a href="./index.html#inicio">Voltar ao início ↑</a>
           <span>Rio de Janeiro, Brasil</span>
         </div>
       </div>
@@ -769,21 +815,29 @@ function ScrollReveal() {
 }
 
 export default function App() {
+  const path = window.location.pathname.toLowerCase();
+  const page = path.endsWith("/estudio.html")
+    ? "studio"
+    : path.endsWith("/servicos.html")
+      ? "services"
+      : path.endsWith("/pacotes.html")
+        ? "packages"
+        : "home";
+
+  const sections = page === "studio"
+    ? <><StudioSection /><GallerySection /><LocationSection /></>
+    : page === "services"
+      ? <><ServicesSection /><WhyCaverna /><ProcessSection /></>
+      : page === "packages"
+        ? <><RecordingPackages /><CutsPackages /></>
+        : <><HeroSection /><StudioIntro /><HomeDestinations /></>;
+
   return (
     <>
       <ScrollReveal />
       <Header />
       <main>
-        <HeroSection />
-        <StudioIntro />
-        <StudioSection />
-        <ServicesSection />
-        <RecordingPackages />
-        <CutsPackages />
-        <WhyCaverna />
-        <ProcessSection />
-        <GallerySection />
-        <LocationSection />
+        {sections}
         <FinalCallToAction />
       </main>
       <Footer />

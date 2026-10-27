@@ -13,12 +13,11 @@ export const generalMessage =
   "Olá! Conheci o Caverna Cast pelo site e gostaria de mais informações sobre os serviços e agendamento.";
 
 export const navigation = [
-  { label: "Início", href: "#inicio" },
-  { label: "Estrutura", href: "#estrutura" },
-  { label: "Serviços", href: "#servicos" },
-  { label: "Pacotes", href: "#pacotes" },
-  { label: "Localização", href: "#localizacao" },
-  { label: "Contato", href: "#contato" },
+  { label: "Início", href: "./index.html#inicio" },
+  { label: "Estúdio", href: "./estudio.html" },
+  { label: "Serviços", href: "./servicos.html" },
+  { label: "Pacotes", href: "./pacotes.html" },
+  { label: "Contato", href: "./index.html#contato" },
 ];
 
 export const gallery = [

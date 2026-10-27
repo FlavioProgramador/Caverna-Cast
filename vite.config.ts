@@ -3,4 +3,14 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
+  build: {
+    rolldownOptions: {
+      input: {
+        main: "index.html",
+        studio: "estudio.html",
+        services: "servicos.html",
+        packages: "pacotes.html",
+      },
+    },
+  },
 });
