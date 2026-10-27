@@ -10,6 +10,10 @@ import {
   navigation,
   processSteps,
   recordingPackages,
+  STUDIO_ADDRESS,
+  STUDIO_DIRECTIONS_URL,
+  STUDIO_MAP_EMBED_URL,
+  STUDIO_MAPS_URL,
   socialFormats,
   studioFeatures,
   visualIdentityItems,
@@ -657,6 +661,44 @@ function FinalCallToAction() {
   );
 }
 
+function LocationSection() {
+  return (
+    <section className="location section-pad" id="localizacao">
+      <div className="shell location__layout">
+        <div className="location__copy reveal">
+          <p className="eyebrow"><span className="eyebrow__line" /> Como chegar</p>
+          <h2>O estúdio fica em <em>Pacheco.</em></h2>
+          <p className="location__intro">
+            Estamos em São Gonçalo, no Rio de Janeiro. Consulte o mapa para ver o local
+            e montar sua rota até o Caverna Cast.
+          </p>
+          <address className="location__address">
+            <Icon name="map-pin" aria-hidden="true" />
+            <span>{STUDIO_ADDRESS}</span>
+          </address>
+          <div className="location__actions">
+            <a className="button button--primary" href={STUDIO_DIRECTIONS_URL} target="_blank" rel="noreferrer">
+              Traçar rota <Icon name="arrow" />
+            </a>
+            <a className="text-link text-link--light" href={STUDIO_MAPS_URL} target="_blank" rel="noreferrer">
+              Abrir no Google Maps <Icon name="arrow" />
+            </a>
+          </div>
+        </div>
+        <div className="location__map reveal">
+          <iframe
+            src={STUDIO_MAP_EMBED_URL}
+            title="Mapa do Caverna Cast no bairro Pacheco, em São Gonçalo"
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            allowFullScreen
+          />
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Footer() {
   return (
     <footer className="site-footer" id="contato">
@@ -741,6 +783,7 @@ export default function App() {
         <WhyCaverna />
         <ProcessSection />
         <GallerySection />
+        <LocationSection />
         <FinalCallToAction />
       </main>
       <Footer />

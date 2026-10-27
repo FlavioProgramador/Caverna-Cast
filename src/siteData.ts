@@ -1,5 +1,9 @@
 export const WHATSAPP_NUMBER = "5521995507294";
 export const INSTAGRAM_URL = "https://www.instagram.com/_cavernacast/";
+export const STUDIO_ADDRESS = "Rua Olimpio da Silva, 31 - Pacheco, São Gonçalo - RJ, 24736-610";
+export const STUDIO_MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(STUDIO_ADDRESS)}`;
+export const STUDIO_DIRECTIONS_URL = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(STUDIO_ADDRESS)}`;
+export const STUDIO_MAP_EMBED_URL = `https://maps.google.com/maps?q=${encodeURIComponent(STUDIO_ADDRESS)}&z=15&output=embed`;
 
 export function whatsappUrl(message: string): string {
   return "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(message);
@@ -13,6 +17,7 @@ export const navigation = [
   { label: "Estrutura", href: "#estrutura" },
   { label: "Serviços", href: "#servicos" },
   { label: "Pacotes", href: "#pacotes" },
+  { label: "Localização", href: "#localizacao" },
   { label: "Contato", href: "#contato" },
 ];
 
