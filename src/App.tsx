@@ -293,6 +293,15 @@ function ServicesSection() {
         <div className="services__list">
           <article className="service-row reveal">
             <div className="service-row__number">01</div>
+            <div className="service-row__image">
+              <img
+                src="/images/services/microfone-podcast.webp"
+                width="1170"
+                height="780"
+                alt="Microfone profissional iluminado em azul e roxo para gravação de podcast"
+                loading="lazy"
+              />
+            </div>
             <div className="service-row__main">
               <div className="service-row__icon"><Icon name="mic" /></div>
               <div>
@@ -314,6 +323,15 @@ function ServicesSection() {
 
           <article className="service-row reveal">
             <div className="service-row__number">02</div>
+            <div className="service-row__image">
+              <img
+                src="/images/services/timeline-cortes.webp"
+                width="687"
+                height="1031"
+                alt="Timeline de edição de vídeo com clipes e faixas de áudio"
+                loading="lazy"
+              />
+            </div>
             <div className="service-row__main">
               <div className="service-row__icon"><Icon name="scissors" /></div>
               <div>
@@ -338,6 +356,22 @@ function ServicesSection() {
 
           <article className="service-row reveal">
             <div className="service-row__number">03</div>
+            <div
+              className="service-row__visual service-row__visual--identity"
+              role="img"
+              aria-label="Composição ilustrativa da identidade visual do Caverna Cast em capa e thumbnail"
+            >
+              <div className="identity-cover">
+                <span className="identity-cover__index">CC / 01</span>
+                <img src="/caverna-cast-logo.png" width="200" height="200" alt="" />
+                <strong>Grave.<br />Conte.<br />Conecte.</strong>
+                <span className="identity-cover__label">Capa de podcast</span>
+              </div>
+              <div className="identity-thumbnail">
+                <img src="/caverna-cast-logo.png" width="200" height="200" alt="" />
+                <span>Grave.<br />Conte.<br />Conecte.</span>
+              </div>
+            </div>
             <div className="service-row__main">
               <div className="service-row__icon"><Icon name="layers" /></div>
               <div>
