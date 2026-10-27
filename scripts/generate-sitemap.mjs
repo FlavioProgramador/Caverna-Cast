@@ -1,4 +1,4 @@
-import { writeFile } from "node:fs/promises";
+import { readFile, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
 
 const rawOrigin = process.env.VITE_SITE_ORIGIN;
@@ -23,4 +23,8 @@ const paths = ["/", "/estudio.html", "/servicos.html", "/pacotes.html", "/contat
 const urls = paths.map((path) => `  <url><loc>${origin}${path}</loc></url>`).join("\n");
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`;
 await writeFile(resolve("public", "sitemap.xml"), sitemap, "utf8");
-console.log(`Sitemap criado para ${origin} com ${paths.length} URLs.`);
+const robotsPath = resolve("public", "robots.txt");
+const existingRobots = await readFile(robotsPath, "utf8").catch(() => "User-agent: *\nAllow: /\n");
+const robotsWithoutSitemap = existingRobots.replace(/^Sitemap:\s*.*(?:\r?\n|$)/gim, "").trimEnd();
+await writeFile(robotsPath, `${robotsWithoutSitemap}\nSitemap: ${origin}/sitemap.xml\n`, "utf8");
+console.log(`Sitemap criado para ${origin} com ${paths.length} URLs e referenciado em robots.txt.`);

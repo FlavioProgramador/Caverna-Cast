@@ -44,7 +44,7 @@ npm run seo:sitemap
 npm run build
 ```
 
-`VITE_SITE_ORIGIN` deve conter apenas a origem HTTPS, sem caminho, query ou fragmento. O build adiciona canonical e `og:url` quando essa variável está configurada. O comando `seo:sitemap` gera `public/sitemap.xml` para as cinco páginas públicas e falha explicitamente quando o domínio não foi definido. `public/robots.txt` permite rastreamento geral; publique o sitemap e sua referência no `robots.txt` apenas após configurar a origem real.
+`VITE_SITE_ORIGIN` deve conter apenas a origem HTTPS, sem caminho, query ou fragmento. O build adiciona canonical e `og:url` quando essa variável está configurada. O comando `seo:sitemap` gera `public/sitemap.xml` para as cinco páginas públicas e adiciona a referência correspondente a `public/robots.txt`; ele falha explicitamente quando o domínio não foi definido. Não gere nem publique o sitemap antes de configurar a origem real.
 
 Os HTMLs incluem metadados Open Graph e schema JSON-LD `LocalBusiness` baseado nos dados de contato e endereço já fornecidos pelo site. Revise os dados estruturados caso endereço, telefone ou perfil social mudem.
 
