@@ -23,7 +23,8 @@ export const gallery = [
     caption: "Um cenário pronto para a conversa",
     width: 1501,
     height: 997,
-    className: "gallery-image--wide",
+    className: "gallery-tile--wide",
+    objectPosition: "center 50%",
   },
   {
     src: "/images/studio/hero-microfone-caverna.webp",
@@ -31,7 +32,8 @@ export const gallery = [
     caption: "Áudio e imagem em clima de estúdio",
     width: 1024,
     height: 1536,
-    className: "gallery-image--portrait",
+    className: "gallery-tile--portrait",
+    objectPosition: "center 34%",
   },
   {
     src: "/images/studio/sala-equipamentos.webp",
@@ -39,7 +41,8 @@ export const gallery = [
     caption: "Estrutura de gravação",
     width: 1287,
     height: 855,
-    className: "gallery-image--wide",
+    className: "gallery-tile--wide",
+    objectPosition: "center 50%",
   },
   {
     src: "/images/studio/microfones-mesa.webp",
@@ -47,7 +50,8 @@ export const gallery = [
     caption: "Cada lugar preparado para gravar",
     width: 1287,
     height: 855,
-    className: "gallery-image--wide",
+    className: "gallery-tile--wide",
+    objectPosition: "center 50%",
   },
   {
     src: "/images/studio/camera-estudio.webp",
@@ -55,7 +59,8 @@ export const gallery = [
     caption: "Captação de vídeo",
     width: 663,
     height: 997,
-    className: "gallery-image--portrait",
+    className: "gallery-tile--portrait",
+    objectPosition: "center 42%",
   },
   {
     src: "/images/studio/guitarras-estudio.webp",
@@ -63,7 +68,8 @@ export const gallery = [
     caption: "Detalhes da Caverna",
     width: 2144,
     height: 1424,
-    className: "gallery-image--wide",
+    className: "gallery-tile--wide",
+    objectPosition: "center 50%",
   },
   {
     src: "/images/studio/caneca-caverna.webp",
@@ -71,7 +77,8 @@ export const gallery = [
     caption: "A marca também mora nos detalhes",
     width: 946,
     height: 1424,
-    className: "gallery-image--portrait",
+    className: "gallery-tile--portrait",
+    objectPosition: "center 62%",
   },
 ];
 

@@ -554,6 +554,7 @@ function GallerySection() {
                 width={image.width}
                 height={image.height}
                 alt={image.alt}
+                style={image.objectPosition ? { objectPosition: image.objectPosition } : undefined}
                 loading="lazy"
               />
               <span className="gallery-tile__caption">
