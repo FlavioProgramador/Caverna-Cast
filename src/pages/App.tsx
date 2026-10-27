@@ -597,7 +597,7 @@ function GallerySection() {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const categories = ["Todos", ...new Set(gallery.map((image) => image.category))];
   const visibleGallery = activeCategory === "Todos" ? gallery : gallery.filter((image) => image.category === activeCategory);
-  const active = activeImage === null ? null : visibleGallery[activeImage];
+  const active = activeImage === null ? null : (visibleGallery[activeImage] ?? null);
 
   useEffect(() => {
     const dialog = dialogRef.current;
@@ -644,6 +644,9 @@ function GallerySection() {
               {category}
             </button>
           ))}
+          <p className="gallery__filter-count" role="status" aria-live="polite" aria-atomic="true">
+            {visibleGallery.length} {visibleGallery.length === 1 ? "foto" : "fotos"}
+          </p>
         </div>
         <div className="gallery__grid">
           {visibleGallery.map((image, index) => (
@@ -697,7 +700,7 @@ function GallerySection() {
             <button
               className="lightbox__nav lightbox__nav--previous"
               type="button"
-              onClick={() => setActiveImage((index) => index === null ? null : (index + gallery.length - 1) % gallery.length)}
+              onClick={() => setActiveImage((index) => index === null ? null : (index + visibleGallery.length - 1) % visibleGallery.length)}
               aria-label="Foto anterior"
             >
               <Icon name="chevron-left" />
@@ -709,7 +712,7 @@ function GallerySection() {
             <button
               className="lightbox__nav lightbox__nav--next"
               type="button"
-              onClick={() => setActiveImage((index) => index === null ? null : (index + 1) % gallery.length)}
+              onClick={() => setActiveImage((index) => index === null ? null : (index + 1) % visibleGallery.length)}
               aria-label="Próxima foto"
             >
               <Icon name="chevron-right" />
@@ -967,9 +970,8 @@ function Footer({ compact = false }: { compact?: boolean }) {
 
 function ScrollReveal() {
   useEffect(() => {
-    const elements = document.querySelectorAll<HTMLElement>(".reveal");
     if (!("IntersectionObserver" in window)) {
-      elements.forEach((element) => element.classList.add("is-visible"));
+      document.querySelectorAll<HTMLElement>(".reveal").forEach((element) => element.classList.add("is-visible"));
       return;
     }
 
@@ -984,8 +986,29 @@ function ScrollReveal() {
       },
       { threshold: 0.12 },
     );
-    elements.forEach((element) => observer.observe(element));
-    return () => observer.disconnect();
+
+    function observeRevealElements(root: ParentNode) {
+      if (root instanceof HTMLElement && root.matches(".reveal") && !root.classList.contains("is-visible")) {
+        observer.observe(root);
+      }
+      root.querySelectorAll<HTMLElement>(".reveal:not(.is-visible)").forEach((element) => observer.observe(element));
+    }
+
+    observeRevealElements(document);
+
+    const mutations = new MutationObserver((records) => {
+      records.forEach((record) => {
+        record.addedNodes.forEach((node) => {
+          if (node instanceof HTMLElement) observeRevealElements(node);
+        });
+      });
+    });
+    mutations.observe(document.body, { childList: true, subtree: true });
+
+    return () => {
+      observer.disconnect();
+      mutations.disconnect();
+    };
   }, []);
 
   return null;
