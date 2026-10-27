@@ -677,7 +677,10 @@ function LocationSection() {
             <span>{STUDIO_ADDRESS}</span>
           </address>
           <div className="location__actions">
-            <a className="button button--primary" href={STUDIO_DIRECTIONS_URL} target="_blank" rel="noreferrer">
+            <WhatsAppLink className="button button--primary" message={generalMessage}>
+              Agendar gravação <Icon name="arrow" />
+            </WhatsAppLink>
+            <a className="text-link text-link--light" href={STUDIO_DIRECTIONS_URL} target="_blank" rel="noreferrer">
               Traçar rota <Icon name="arrow" />
             </a>
             <a className="text-link text-link--light" href={STUDIO_MAPS_URL} target="_blank" rel="noreferrer">
@@ -838,7 +841,7 @@ export default function App() {
       <Header />
       <main>
         {sections}
-        <FinalCallToAction />
+        {page === "home" && <FinalCallToAction />}
       </main>
       <Footer />
       <WhatsAppLink
