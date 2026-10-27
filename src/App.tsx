@@ -355,20 +355,15 @@ function ServicesSection() {
           </article>
 
           <article className="service-card service-card--identity reveal">
-            <div
-              className="service-card__identity-art"
-              role="img"
-              aria-label="Arte ilustrativa de capa e thumbnail com a logo e o slogan do Caverna Cast"
-            >
-              <div className="identity-art__cover">
-                <span className="identity-art__index">Caverna Cast · 01</span>
-                <img src="/caverna-cast-logo.png" width="200" height="200" alt="" />
-                <strong>Grave.<br />Conte.<br />Conecte.</strong>
-              </div>
-              <div className="identity-art__thumbnail">
-                <img src="/caverna-cast-logo.png" width="200" height="200" alt="" />
-                <span>Grave.<br />Conte.<br />Conecte.</span>
-              </div>
+            <div className="service-card__identity-art">
+              <img
+                className="service-card__identity-image"
+                src="/images/services/identidade-visual-caverna-cast.webp"
+                width="1024"
+                height="572"
+                alt="Estúdio Caverna Cast com a marca iluminada na parede, microfone e mesa de gravação"
+                loading="lazy"
+              />
             </div>
             <div className="service-card__body">
               <div className="service-card__title-row">
