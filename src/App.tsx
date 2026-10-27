@@ -21,7 +21,7 @@ import {
 } from "./siteData";
 import { WhatsAppLink } from "./WhatsAppLink";
 
-function Header() {
+function Header({ hideCTA = false }: { hideCTA?: boolean }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -63,9 +63,11 @@ function Header() {
               {item.label}
             </a>
           ))}
-          <WhatsAppLink className="button button--small button--light nav-cta" message={generalMessage}>
-            Agendar gravação <Icon name="arrow" />
-          </WhatsAppLink>
+          {!hideCTA && (
+            <WhatsAppLink className="button button--small button--light nav-cta" message={generalMessage}>
+              Agendar gravação <Icon name="arrow" />
+            </WhatsAppLink>
+          )}
         </nav>
       </div>
     </header>
@@ -706,33 +708,35 @@ function ContactPage() {
   return (
     <section className="contact-page section-pad" id="contato">
       <div className="shell">
-        <div className="contact-page__heading reveal">
-          <p className="eyebrow"><span className="eyebrow__line" /> Contato direto</p>
-          <h1>Vamos falar sobre <em>sua gravação.</em></h1>
-          <p>Escolha o canal mais prático para conversar com a equipe do Caverna Cast.</p>
-        </div>
-
         <div className="contact-page__layout">
-          <div className="contact-page__channels reveal">
-            <WhatsAppLink className="contact-channel contact-channel--whatsapp" message={generalMessage}>
-              <span className="contact-channel__icon"><Icon name="whatsapp" /></span>
-              <span className="contact-channel__copy">
-                <span className="contact-channel__label">Agendamentos e informações</span>
-                <strong>Converse pelo WhatsApp</strong>
-                <span>+55 (21) 99550-7294</span>
-              </span>
-              <Icon name="arrow" className="contact-channel__arrow" />
-            </WhatsAppLink>
+          <div className="contact-page__main">
+            <div className="contact-page__heading reveal">
+              <p className="eyebrow"><span className="eyebrow__line" /> Contato direto</p>
+              <h1>Fale com a <em>Caverna.</em></h1>
+              <p>Consulte disponibilidade e tire dúvidas sobre sua gravação.</p>
+            </div>
 
-            <a className="contact-channel contact-channel--instagram" href={INSTAGRAM_URL} target="_blank" rel="noreferrer">
-              <span className="contact-channel__icon"><Icon name="instagram" /></span>
-              <span className="contact-channel__copy">
-                <span className="contact-channel__label">Acompanhe o estúdio</span>
-                <strong>Instagram</strong>
-                <span>@_cavernacast</span>
-              </span>
-              <Icon name="arrow" className="contact-channel__arrow" />
-            </a>
+            <div className="contact-page__channels reveal">
+              <WhatsAppLink className="contact-channel contact-channel--whatsapp" message={generalMessage}>
+                <span className="contact-channel__icon"><Icon name="whatsapp" /></span>
+                <span className="contact-channel__copy">
+                  <span className="contact-channel__label">Agendamentos</span>
+                  <strong>WhatsApp</strong>
+                  <span>+55 (21) 99550-7294</span>
+                </span>
+                <Icon name="arrow" className="contact-channel__arrow" />
+              </WhatsAppLink>
+
+              <a className="contact-channel contact-channel--instagram" href={INSTAGRAM_URL} target="_blank" rel="noreferrer">
+                <span className="contact-channel__icon"><Icon name="instagram" /></span>
+                <span className="contact-channel__copy">
+                  <span className="contact-channel__label">Bastidores e novidades</span>
+                  <strong>Instagram</strong>
+                  <span>@_cavernacast</span>
+                </span>
+                <Icon name="arrow" className="contact-channel__arrow" />
+              </a>
+            </div>
           </div>
 
           <aside className="contact-page__location reveal">
@@ -746,14 +750,14 @@ function ContactPage() {
               />
             </div>
             <div className="contact-page__location-copy">
-              <p className="eyebrow"><span className="eyebrow__line" /> Onde estamos</p>
+              <p className="eyebrow"><span className="eyebrow__line" /> Visite o estúdio</p>
               <address><Icon name="map-pin" />{STUDIO_ADDRESS}</address>
               <div className="contact-page__location-links">
                 <a className="text-link text-link--light" href={STUDIO_MAPS_URL} target="_blank" rel="noreferrer">
-                  Abrir no Google Maps <Icon name="arrow" />
+                  Como chegar <Icon name="arrow" />
                 </a>
                 <a className="text-link text-link--light" href="./estudio.html#localizacao">
-                  Conhecer o estúdio <Icon name="arrow" />
+                  Ver estrutura <Icon name="arrow" />
                 </a>
               </div>
             </div>
@@ -810,9 +814,13 @@ function HomeDestinations() {
   );
 }
 
-function Footer() {
+function Footer({ compact = false }: { compact?: boolean }) {
+  const footerNavigation = compact
+    ? navigation.filter((item) => item.label !== "Contato")
+    : navigation;
+
   return (
-    <footer className="site-footer">
+    <footer className={compact ? "site-footer site-footer--compact" : "site-footer"}>
       <div className="shell">
         <div className="footer-main">
           <div className="footer-brand">
@@ -825,23 +833,27 @@ function Footer() {
           </div>
           <div className="footer-links">
             <span className="footer-label">Navegue</span>
-            {navigation.map((item) => (
+            {footerNavigation.map((item) => (
               <a key={item.href} href={item.href}>{item.label}</a>
             ))}
           </div>
-          <div className="footer-contact">
-            <span className="footer-label">Converse com a gente</span>
-            <a href="tel:+5521995507294">+55 (21) 99550-7294</a>
-            <a href={INSTAGRAM_URL} target="_blank" rel="noreferrer">
-              <Icon name="instagram" /> @_cavernacast
-            </a>
-            <span>Rio de Janeiro</span>
-          </div>
-          <WhatsAppLink className="footer-whatsapp" message={generalMessage} aria-label="Falar com o Caverna Cast pelo WhatsApp">
-            <Icon name="whatsapp" />
-            <span>Chamar no WhatsApp</span>
-            <Icon name="arrow" />
-          </WhatsAppLink>
+          {!compact && (
+            <>
+              <div className="footer-contact">
+                <span className="footer-label">Converse com a gente</span>
+                <a href="tel:+5521995507294">+55 (21) 99550-7294</a>
+                <a href={INSTAGRAM_URL} target="_blank" rel="noreferrer">
+                  <Icon name="instagram" /> @_cavernacast
+                </a>
+                <span>Rio de Janeiro</span>
+              </div>
+              <WhatsAppLink className="footer-whatsapp" message={generalMessage} aria-label="Falar com o Caverna Cast pelo WhatsApp">
+                <Icon name="whatsapp" />
+                <span>Chamar no WhatsApp</span>
+                <Icon name="arrow" />
+              </WhatsAppLink>
+            </>
+          )}
         </div>
         <div className="footer-bottom">
           <span>© {new Date().getFullYear()} Caverna Cast</span>
@@ -904,12 +916,12 @@ export default function App() {
   return (
     <>
       <ScrollReveal />
-      <Header />
+      <Header hideCTA={page === "contact"} />
       <main>
         {sections}
         {page === "home" && <FinalCallToAction />}
       </main>
-      <Footer />
+      <Footer compact={page === "contact"} />
       {page !== "contact" && <WhatsAppLink
         className="mobile-whatsapp"
         message={generalMessage}
