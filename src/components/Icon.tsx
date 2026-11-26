@@ -17,7 +17,10 @@ type IconName =
   | "whatsapp"
   | "map-pin"
   | "chevron-left"
-  | "chevron-right";
+  | "chevron-right"
+  | "phone"
+  | "plus"
+  | "route";
 
 type IconProps = SVGProps<SVGSVGElement> & { name: IconName };
 
@@ -97,6 +100,15 @@ const paths: Record<IconName, ReactNode> = {
   ),
   "chevron-left": <path d="m15 18-6-6 6-6" />,
   "chevron-right": <path d="m9 18 6-6-6-6" />,
+  phone: <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z" />,
+  plus: <path d="M12 5v14M5 12h14" />,
+  route: (
+    <>
+      <circle cx="6" cy="19" r="2.5" />
+      <circle cx="18" cy="5" r="2.5" />
+      <path d="M8.5 19H16a3.5 3.5 0 0 0 0-7H8a3.5 3.5 0 0 1 0-7h7.5" />
+    </>
+  ),
 };
 
 export function Icon({ name, ...props }: IconProps) {

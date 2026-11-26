@@ -1,0 +1,11 @@
+.agents
+.claude
+assets-originals
+dist
+docs
+graphify-out
+node_modules
+test-results
+tests
+playwright-report
+.env*.local

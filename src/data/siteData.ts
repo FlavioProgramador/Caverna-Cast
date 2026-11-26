@@ -20,6 +20,7 @@ export const navigation = [
   { label: "Contato", href: "./contato.html" },
 ];
 
+/** Two mirrored rows: wide, tall, tall, wide. Keep that rhythm when adding photos. */
 export const gallery = [
   {
     src: "/images/studio/mesa-estudio.webp",
@@ -27,7 +28,7 @@ export const gallery = [
     caption: "Um cenário pronto para a conversa",
     category: "Estúdio",
     srcSet: "/images/studio/mesa-estudio-480.webp 480w, /images/studio/mesa-estudio-800.webp 800w, /images/studio/mesa-estudio.webp 1501w",
-    sizes: "(max-width: 600px) 100vw, (max-width: 820px) 50vw, 40vw",
+    sizes: "(max-width: 820px) 100vw, 34vw",
     width: 1501,
     height: 997,
     className: "gallery-tile--wide",
@@ -39,11 +40,23 @@ export const gallery = [
     caption: "Áudio e imagem em clima de estúdio",
     category: "Equipamentos",
     srcSet: "/images/studio/hero-microfone-caverna-480.webp 480w, /images/studio/hero-microfone-caverna-800.webp 800w, /images/studio/hero-microfone-caverna.webp 1024w",
-    sizes: "(max-width: 600px) 100vw, (max-width: 820px) 50vw, 24vw",
+    sizes: "(max-width: 820px) 50vw, 17vw",
     width: 1024,
     height: 1536,
     className: "gallery-tile--portrait",
     objectPosition: "center 34%",
+  },
+  {
+    src: "/images/studio/camera-estudio.webp",
+    alt: "Câmera de vídeo instalada no estúdio",
+    caption: "Captação de vídeo",
+    category: "Equipamentos",
+    srcSet: "/images/studio/camera-estudio-360.webp 360w, /images/studio/camera-estudio-540.webp 540w, /images/studio/camera-estudio.webp 663w",
+    sizes: "(max-width: 820px) 50vw, 17vw",
+    width: 663,
+    height: 997,
+    className: "gallery-tile--portrait",
+    objectPosition: "center 42%",
   },
   {
     src: "/images/studio/sala-equipamentos.webp",
@@ -51,7 +64,7 @@ export const gallery = [
     caption: "Estrutura de gravação",
     category: "Estúdio",
     srcSet: "/images/studio/sala-equipamentos-480.webp 480w, /images/studio/sala-equipamentos-800.webp 800w, /images/studio/sala-equipamentos-1200.webp 1200w, /images/studio/sala-equipamentos.webp 1287w",
-    sizes: "(max-width: 600px) 100vw, (max-width: 820px) 50vw, 40vw",
+    sizes: "(max-width: 820px) 100vw, 34vw",
     width: 1287,
     height: 855,
     className: "gallery-tile--wide",
@@ -63,35 +76,23 @@ export const gallery = [
     caption: "Cada lugar preparado para gravar",
     category: "Equipamentos",
     srcSet: "/images/studio/microfones-mesa-480.webp 480w, /images/studio/microfones-mesa-800.webp 800w, /images/studio/microfones-mesa-1200.webp 1200w, /images/studio/microfones-mesa.webp 1287w",
-    sizes: "(max-width: 600px) 100vw, (max-width: 820px) 50vw, 40vw",
+    sizes: "(max-width: 820px) 100vw, 34vw",
     width: 1287,
     height: 855,
     className: "gallery-tile--wide",
     objectPosition: "center 50%",
   },
   {
-    src: "/images/studio/camera-estudio.webp",
-    alt: "Câmera de vídeo instalada no estúdio",
-    caption: "Captação de vídeo",
+    src: "/images/studio/microfone-detalhe.webp",
+    alt: "Microfone de estúdio sobre a mesa de madeira, com canecas da Caverna ao fundo",
+    caption: "Um microfone para cada voz",
     category: "Equipamentos",
-    srcSet: "/images/studio/camera-estudio-360.webp 360w, /images/studio/camera-estudio-540.webp 540w, /images/studio/camera-estudio.webp 663w",
-    sizes: "(max-width: 600px) 50vw, (max-width: 820px) 30vw, 20vw",
+    srcSet: "/images/studio/microfone-detalhe.webp 663w",
+    sizes: "(max-width: 820px) 50vw, 17vw",
     width: 663,
     height: 997,
     className: "gallery-tile--portrait",
-    objectPosition: "center 42%",
-  },
-  {
-    src: "/images/studio/guitarras-estudio.webp",
-    alt: "Guitarras que compõem a decoração do estúdio",
-    caption: "Detalhes da Caverna",
-    category: "Detalhes",
-    srcSet: "/images/studio/guitarras-estudio-640.webp 640w, /images/studio/guitarras-estudio-1200.webp 1200w, /images/studio/guitarras-estudio-1800.webp 1800w, /images/studio/guitarras-estudio.webp 2144w",
-    sizes: "(max-width: 600px) 100vw, (max-width: 820px) 50vw, 40vw",
-    width: 2144,
-    height: 1424,
-    className: "gallery-tile--wide",
-    objectPosition: "center 50%",
+    objectPosition: "center 40%",
   },
   {
     src: "/images/studio/caneca-caverna.webp",
@@ -99,11 +100,23 @@ export const gallery = [
     caption: "A marca também mora nos detalhes",
     category: "Detalhes",
     srcSet: "/images/studio/caneca-caverna-360.webp 360w, /images/studio/caneca-caverna-640.webp 640w, /images/studio/caneca-caverna.webp 946w",
-    sizes: "(max-width: 600px) 50vw, (max-width: 820px) 30vw, 20vw",
+    sizes: "(max-width: 820px) 50vw, 17vw",
     width: 946,
     height: 1424,
     className: "gallery-tile--portrait",
     objectPosition: "center 62%",
+  },
+  {
+    src: "/images/studio/guitarras-estudio.webp",
+    alt: "Guitarras que compõem a decoração do estúdio",
+    caption: "Detalhes da Caverna",
+    category: "Detalhes",
+    srcSet: "/images/studio/guitarras-estudio-640.webp 640w, /images/studio/guitarras-estudio-1200.webp 1200w, /images/studio/guitarras-estudio-1800.webp 1800w, /images/studio/guitarras-estudio.webp 2144w",
+    sizes: "(max-width: 820px) 100vw, 34vw",
+    width: 2144,
+    height: 1424,
+    className: "gallery-tile--wide",
+    objectPosition: "center 50%",
   },
 ];
 
@@ -261,3 +274,96 @@ export const processSteps = [
     body: "Você recebe o conteúdo pronto para usar nas suas plataformas.",
   },
 ];
+
+export const PHONE_DISPLAY = "+55 (21) 99550-7294";
+export const PHONE_TEL = "tel:+5521995507294";
+export const INSTAGRAM_HANDLE = "@_cavernacast";
+
+/** Rooms and gear shown in the home "what's in the room" stack (real studio photos). */
+export const studioStack = [
+  {
+    title: "Mesa para até 4 pessoas",
+    body: "Cenário montado para a conversa, com um microfone para cada participante.",
+    image: "/images/studio/microfones-mesa.webp",
+    ratio: 1287 / 855,
+    alt: "Quatro microfones e canecas da Caverna sobre a mesa de madeira do estúdio",
+    tags: ["Até 4 participantes", "Cenário pronto"],
+  },
+  {
+    title: "Gravação em 4K",
+    body: "Câmeras posicionadas para captar o programa em alta resolução, do plano aberto ao close.",
+    image: "/images/studio/camera-estudio.webp",
+    ratio: 663 / 997,
+    alt: "Câmera de vídeo instalada no estúdio, apontada para a mesa",
+    tags: ["4K", "Vídeo e áudio"],
+  },
+  {
+    title: "Captação profissional de áudio",
+    body: "Microfones de estúdio e monitoramento durante toda a gravação.",
+    image: "/images/studio/hero-microfone-caverna.webp",
+    ratio: 1024 / 1536,
+    alt: "Microfone de estúdio iluminado sobre fundo escuro",
+    tags: ["Monitoramento", "Som de estúdio"],
+  },
+  {
+    title: "Luz e estrutura de estúdio",
+    body: "Iluminação, monitores e computador de captura. A estrutura fica por nossa conta.",
+    image: "/images/studio/sala-equipamentos.webp",
+    ratio: 1287 / 855,
+    alt: "Sala de equipamentos com monitores, computador e braços de microfone",
+    tags: ["Iluminação", "Monitores"],
+  },
+  {
+    title: "Um cenário com personalidade",
+    body: "Cortinas azuis, madeira e as guitarras da Caverna ao fundo do seu vídeo.",
+    image: "/images/studio/guitarras-estudio-1800.webp",
+    ratio: 2144 / 1424,
+    alt: "Prateleira com guitarras em miniatura na parede azul do estúdio",
+    tags: ["Detalhes", "Identidade"],
+  },
+];
+
+/** Vertical demo clips (stock, illustrative) used in the social cuts phone. */
+export const cutClips = [
+  { src: "/media/corte-conversa.mp4", poster: "/media/corte-conversa.webp" },
+  { src: "/media/corte-entrevista.mp4", poster: "/media/corte-entrevista.webp" },
+];
+
+export const services = [
+  {
+    id: "gravacao",
+    title: "Gravação de podcast e videocast",
+    summary: "Você traz a pauta e os convidados. A gente liga câmeras, microfones e luz e acompanha a gravação.",
+    items: ["Podcast em áudio e vídeo", "Videocast", "Entrevistas", "Conteúdo para redes sociais", "Edição conforme o formato contratado"],
+    image: "/images/services/microfone-podcast.webp",
+    alt: "Microfone de estúdio azul em ambiente escuro",
+    href: "./pacotes.html",
+    cta: "Ver pacotes de gravação",
+  },
+  {
+    id: "cortes",
+    title: "Cortes para redes sociais",
+    summary: "Uma conversa longa rende vários vídeos curtos. Separamos os melhores momentos no formato de cada rede.",
+    items: socialFormats,
+    image: "/images/services/timeline-cortes.webp",
+    alt: "Linha do tempo de edição com cortes de vídeo e trilhas de áudio",
+    href: "./pacotes.html#cortes",
+    cta: "Ver preços dos cortes",
+  },
+  {
+    id: "identidade",
+    title: "Identidade visual para programas",
+    summary: "Nome, capa, vinheta e artes para o seu programa ser reconhecido logo no primeiro episódio.",
+    items: visualIdentityItems,
+    image: "/images/services/identidade-visual-caverna-cast.webp",
+    alt: "Placa iluminada com a marca Caverna Cast em parede de pedra",
+    href: "./contato.html",
+    cta: "Conversar sobre identidade",
+  },
+];
+
+/** Price per cut, derived from the package price, e.g. "R$ 30,00". */
+export function pricePerCut(price: string, quantity: number): string {
+  const value = Number(price.replace(/[^\d,]/g, "").replace(",", "."));
+  return (value / quantity).toLocaleString("pt-BR", { style: "currency", currency: "BRL" }).replace(/\u00a0/g, " ");
+}

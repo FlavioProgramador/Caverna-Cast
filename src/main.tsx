@@ -2,6 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./pages/App";
 import "./styles/global.css";
+import "./styles/home.css";
+import "./styles/pages.css";
 import { initAnalytics } from "./lib/analytics";
 
 initAnalytics();

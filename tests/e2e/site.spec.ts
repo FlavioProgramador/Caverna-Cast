@@ -42,9 +42,9 @@ test("FAQ toggles its answer with aria-expanded", async ({ page }) => {
 test("studio gallery filters the real local images", async ({ page }) => {
   await page.goto("/estudio.html");
   await page.getByRole("button", { name: "Equipamentos", exact: true }).click();
-  await expect(page.locator(".gallery-tile")).toHaveCount(3);
+  await expect(page.locator(".gallery-tile")).toHaveCount(4);
   await page.getByRole("button", { name: "Todos" }).click();
-  await expect(page.locator(".gallery-tile")).toHaveCount(7);
+  await expect(page.locator(".gallery-tile")).toHaveCount(8);
 });
 
 test("public pages do not introduce horizontal overflow at key viewport widths", async ({ page }) => {

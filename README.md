@@ -65,16 +65,20 @@ Os links de WhatsApp emitem o evento `whatsapp_click` quando a integração est�
 
 ## Estrutura do código
 
-- `src/components/`: componentes compartilhados (`Icon`, `WhatsAppLink`).
-- `src/pages/`: composição das páginas públicas e seções.
-- `src/data/`: conteúdo estático, pacotes, navegação e dados da galeria.
-- `src/lib/`: integrações e utilitários, incluindo analytics opcional.
-- `src/styles/`: estilos globais e responsivos.
-- `src/test/`: configuração dos testes unitários.
-- `tests/e2e/`: testes de ponta a ponta com Playwright.
-- `scripts/`: auditoria de assets, geração de sitemap e geração de variantes responsivas.
-- `public/images/`: imagens publicadas e variantes WebP responsivas.
-- `assets-originals/`: imagens originais mantidas fora da pasta pública.
+- `src/pages/`: `App.tsx` (escolhe a página pelo caminho) e uma página por arquivo (`HomePage`, `StudioPage`, `ServicesPage`, `PackagesPage`, `ContactPage`).
+- `src/components/layout/`: cabeçalho, rodapé e rolagem suave (Lenis).
+- `src/components/home/`: cenas da página inicial (entrada da caverna, manifesto, pilha de fotos, celular com cortes, chamada final).
+- `src/components/sections/`: seções das páginas internas (galeria, FAQ, mapa, serviços, escada do processo, seletor de cortes).
+- `src/components/`: peças compartilhadas (`BookButton`, `PackageTickets`, `Waveform`, `RollText`, `Icon`, `WhatsAppLink`).
+- `src/lib/motion.ts`: utilitários de animação ligada à rolagem (`useScrollScene`, `useRevealOnce`).
+- `src/data/`: conteúdo, pacotes, navegação e galeria.
+- `src/styles/`: `global.css` (cores, tipografia, botões, cabeçalho e rodapé), `home.css` e `pages.css`.
+- `public/media/`: vídeos ilustrativos dos cortes (veja `docs/creditos-midia.md`).
+- `docs/`: referências de design e créditos de mídia.
+
+## Sistema visual
+
+As cores vêm do logo (preto da caverna, marrom da rocha, ocre do botão de play) e do estúdio real (cortina azul, parede azul-clara). Todas estão como variáveis no topo de `src/styles/global.css`. As fontes são Big Shoulders Display (títulos) e Geologica (texto). Todas as animações respeitam `prefers-reduced-motion`.
 
 ## Imagens responsivas
 
