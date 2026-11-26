@@ -104,6 +104,7 @@ export function CaveHero() {
     const arrive = q(".cave__arrive");
     const glow = q(".cave__glow");
     const hint = q(".cave__hint");
+    const grain = q(".cave__grain");
 
     const copyOut = smooth(seg(p, 0.03, 0.14));
     const nearT = Math.pow(seg(p, 0.02, 0.6), 2.1);
@@ -125,7 +126,9 @@ export function CaveHero() {
       const travel = easeOut(seg(p, 0, 0.72));
       // Tall screens show the whole vertical photo; start with the microphone head (right of
       // centre) under the cave mouth and let it slide to the middle on the way in.
-      const shift = tallScreen.matches ? mix(-23, 0, travel) : 0;
+      // Wide screens: a small nudge frames the in-focus mug and microphone in the mouth; the
+      // strip it uncovers on the right is hidden behind the rock until the nudge is gone.
+      const shift = mix(tallScreen.matches ? -23 : -4, 0, travel);
       studio.style.transform = `translate3d(${shift.toFixed(3)}vw, 0, 0) scale(${mix(1.05, 1, travel).toFixed(4)})`;
       studio.style.filter = `brightness(${mix(0.82, 1, seg(p, 0.1, 0.6)).toFixed(3)})`;
     }
@@ -139,6 +142,8 @@ export function CaveHero() {
     rec.style.opacity = String(1 - seg(p, 0.02, 0.1));
     hint.style.opacity = String(1 - seg(p, 0, 0.04));
     glow.style.opacity = String(1 - seg(p, 0.15, 0.5));
+    // The film grain suits the rock, but over the arrived-at photo it reads as blur: fade it out.
+    grain.style.opacity = String(mix(0.2, 0, seg(p, 0.45, 0.7)).toFixed(3));
 
     arrive.style.opacity = String(arriveIn);
     arrive.style.transform = reduced ? "none" : `translate3d(0, ${(40 * (1 - arriveIn)).toFixed(1)}px, 0)`;
@@ -161,11 +166,11 @@ export function CaveHero() {
                 height="1536"
               />
               <img
-                src="/images/studio/mesa-estudio.webp"
-                srcSet="/images/studio/mesa-estudio-800.webp 800w, /images/studio/mesa-estudio.webp 1501w"
+                src="/images/studio/mesa-estudio-ia-2560.webp"
+                srcSet="/images/studio/mesa-estudio-ia-800.webp 800w, /images/studio/mesa-estudio-ia.webp 1538w, /images/studio/mesa-estudio-ia-2560.webp 2560w"
                 sizes="100vw"
-                width="1501"
-                height="997"
+                width="1538"
+                height="1022"
                 alt="O estúdio do Caverna Cast, com microfones sobre a mesa de gravação"
                 fetchPriority="high"
               />

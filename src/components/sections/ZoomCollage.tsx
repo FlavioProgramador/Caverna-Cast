@@ -12,21 +12,25 @@ type Photo = {
   alt: string;
   /** How much this layer grows by the end of the scene. */
   scale: number;
-  /** Placement around the centre photo: offset x (vw), offset y (vh), height (vmin), width/height ratio. */
-  place?: { x: number; y: number; h: number; r: number };
+  /**
+   * Placement on wide screens: CSS offsets from the centre, height in vh and width/height ratio.
+   * Offsets mix vw (the centre frame is 25vw wide) and vh (frame widths follow their height), so
+   * the photos sit a fixed gap from the centre frame at any screen shape.
+   */
+  place?: { x: string; y: string; h: number; r: number };
   /** Tighter placement for tall screens, all in vw so the cluster scales evenly with the width. */
   tall?: { x: number; y: number; h: number };
 };
 
 // Full-size files: every photo is drawn larger than its frame mid-zoom, so small variants would blur.
 const photos: Photo[] = [
-  { src: "/images/studio/mesa-estudio.webp", alt: "Mesa de gravação com quatro microfones diante das cortinas azuis", scale: 4 },
-  { src: "/images/studio/camera-estudio.webp", alt: "Câmera de vídeo do estúdio", scale: 5, place: { x: -27, y: -21, h: 34, r: 663 / 997 }, tall: { x: -23.7, y: -5, h: 27.2 } },
-  { src: "/images/studio/guitarras-estudio-1200.webp", alt: "Guitarras em miniatura na prateleira da parede azul", scale: 6, place: { x: 5, y: -27, h: 24, r: 2144 / 1424 }, tall: { x: 7.5, y: -34.1, h: 26.7 } },
-  { src: "/images/studio/microfones-mesa.webp", alt: "Microfones e canecas sobre a mesa", scale: 5, place: { x: 31, y: -5, h: 24, r: 1287 / 855 }, tall: { x: 30.7, y: -8, h: 21.3 } },
-  { src: "/images/studio/caneca-caverna.webp", alt: "Caneca com a marca Caverna Cast", scale: 6, place: { x: -12, y: 30, h: 30, r: 946 / 1424 }, tall: { x: -3.5, y: 34.4, h: 27.2 } },
-  { src: "/images/studio/sala-equipamentos.webp", alt: "Monitores e computador de captura da sala", scale: 8, place: { x: 18, y: 27, h: 24, r: 1287 / 855 }, tall: { x: 30.7, y: 15.5, h: 21.3 } },
-  { src: "/images/studio/microfone-detalhe.webp", alt: "Microfone de estúdio sobre a mesa de madeira", scale: 9, place: { x: -33, y: 22, h: 28, r: 663 / 997 }, tall: { x: -23.7, y: 24.3, h: 27.2 } },
+  { src: "/images/studio/mesa-estudio-ia-2560.webp", alt: "Mesa de gravação com quatro microfones diante das cortinas azuis", scale: 4 },
+  { src: "/images/studio/camera-estudio.webp", alt: "Câmera de vídeo do estúdio", scale: 5, place: { x: "calc(-13.7vw - 8.3vh)", y: "0vh", h: 25, r: 663 / 997 }, tall: { x: -23.7, y: -5, h: 27.2 } },
+  { src: "/images/studio/guitarras-estudio-1200.webp", alt: "Guitarras em miniatura na prateleira da parede azul", scale: 6, place: { x: "calc(-0.6vw - 16.6vh)", y: "-25.5vh", h: 22, r: 2144 / 1424 }, tall: { x: 7.5, y: -34.1, h: 26.7 } },
+  { src: "/images/studio/microfones-mesa.webp", alt: "Microfones e canecas sobre a mesa", scale: 5, place: { x: "calc(7.95vh + 0.6vw)", y: "26.5vh", h: 24, r: 1287 / 855 }, tall: { x: 30.7, y: -8, h: 21.3 } },
+  { src: "/images/studio/caneca-caverna.webp", alt: "Caneca com a marca Caverna Cast", scale: 6, place: { x: "calc(-18.05vh - 0.6vw)", y: "26.5vh", h: 24, r: 946 / 1424 }, tall: { x: -3.5, y: 34.4, h: 27.2 } },
+  { src: "/images/studio/sala-equipamentos.webp", alt: "Monitores e computador de captura da sala", scale: 8, place: { x: "calc(0.6vw + 16.6vh)", y: "-25.5vh", h: 22, r: 1287 / 855 }, tall: { x: 30.7, y: 15.5, h: 21.3 } },
+  { src: "/images/studio/microfone-detalhe.webp", alt: "Microfone de estúdio sobre a mesa de madeira", scale: 9, place: { x: "calc(13.7vw + 8.3vh)", y: "0vh", h: 25, r: 663 / 997 }, tall: { x: -23.7, y: 24.3, h: 27.2 } },
 ];
 
 export function ZoomCollage() {
@@ -55,9 +59,9 @@ export function ZoomCollage() {
                 style={
                   photo.place
                     ? ({
-                        "--x": `${photo.place.x}vw`,
-                        "--y": `${photo.place.y}vh`,
-                        "--h": `${photo.place.h}vmin`,
+                        "--x": photo.place.x,
+                        "--y": photo.place.y,
+                        "--h": `${photo.place.h}vh`,
                         "--r": photo.place.r,
                         "--tx": `${photo.tall?.x ?? 0}vw`,
                         "--ty": `${photo.tall?.y ?? 0}vw`,

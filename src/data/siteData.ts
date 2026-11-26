@@ -23,14 +23,14 @@ export const navigation = [
 /** Two mirrored rows: wide, tall, tall, wide. Keep that rhythm when adding photos. */
 export const gallery = [
   {
-    src: "/images/studio/mesa-estudio.webp",
+    src: "/images/studio/mesa-estudio-ia.webp",
     alt: "Mesa de gravação com microfones diante das cortinas azuis do estúdio",
     caption: "Um cenário pronto para a conversa",
     category: "Estúdio",
-    srcSet: "/images/studio/mesa-estudio-480.webp 480w, /images/studio/mesa-estudio-800.webp 800w, /images/studio/mesa-estudio.webp 1501w",
+    srcSet: "/images/studio/mesa-estudio-ia-800.webp 800w, /images/studio/mesa-estudio-ia.webp 1538w, /images/studio/mesa-estudio-ia-2560.webp 2560w",
     sizes: "(max-width: 820px) 100vw, 34vw",
-    width: 1501,
-    height: 997,
+    width: 1538,
+    height: 1022,
     className: "gallery-tile--wide",
     objectPosition: "center 50%",
   },

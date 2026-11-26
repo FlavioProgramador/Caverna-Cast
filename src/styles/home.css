@@ -54,19 +54,19 @@
 .cave__studio {
   position: absolute;
   inset: 0;
-  transform: scale(1.05);
+  transform: translate3d(-4vw, 0, 0) scale(1.05);
   transform-origin: calc(50% + var(--mx)) calc(50% + var(--my));
   filter: brightness(0.82);
   /* No will-change here: it would freeze the photo's raster and blur it while it scales. */
 }
 
-/* Taller than the stage, lifted and nudged left, so the mouth frames the in-focus mug and
-   microphone instead of the front microphone, which is out of focus in the photo. */
+/* Taller than the stage and lifted, so the mouth frames the table. CaveHero also nudges it left at
+   the start, onto the in-focus mug and microphone (the front microphone is out of focus). */
 .cave__studio img {
   position: absolute;
   top: -30%;
-  left: -12%;
-  width: 112%;
+  left: 0;
+  width: 100%;
   height: 130%;
   max-width: none;
   object-fit: cover;
